@@ -12,10 +12,10 @@ spring:
       suffix: .jsp 
 
   datasource:
-    url: jdbc:mysql://${RDS_HOSTNAME}:${RDS_PORT}/${RDS_DB_NAME}?useSSL=false&useUnicode=true&characterEncoding=UTF8&allowPublicKeyRetrieval=true
+    url: jdbc:mysql://localhost:3306/portfolio?useSSL=false&useUnicode=true&characterEncoding=UTF8&serverTimezone=UTC&allowPublicKeyRetrieval=true
     driver-class-name: com.mysql.cj.jdbc.Driver
-    username: ${RDS_USERNAME}
-    password: ${RDS_PASSWORD}
+    username: root
+    password: 1234
   # sql:
   #   init:
   #     mode: always
