@@ -1,83 +1,93 @@
-name: aws-portfolio
+name: ProtoType - Deploy to AWS EC2
+
 on:
   push:
     branches:
       - dev
 
 jobs:
-  build:
+  Build-and-Push:
     runs-on: ubuntu-latest
-   
+
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-      - name: Set up JDK 11
-        uses: actions/setup-java@v3
-        with:
-          java-version: 11
-          distribution: zulu
+    - name: Checkout
+      uses: actions/checkout@v3
 
-          # Yaml 환경변수 세팅
-      - name: Set Yaml
-        uses: microsoft/variable-substitution@v1
-        with:
-          files: './src/test/resources/application-test.yml' 
-        env:
-          spring.datasource.url: ${{ secrets.RDS_HOST }}
-          spring.datasource.username: ${{ secrets.RDS_USERNAME }}
-          spring.datasource.password: ${{ secrets.RDS_PASSWORD }}
-          spring.data.mongodb.uri : ${{ secrets.MONGO_HOST }}
-          cloud.aws.region.static: ${{ secrets.STATIC }}
-          cloud.aws.s3.bucket: ${{ secrets.BUCKET }}
-          cloud.aws.credentials.access-key : ${{ secrets.S3_AWS_ACCESS_KEY }}
-          cloud.aws.credentials.secret-key: ${{ secrets.S3_AWS_SECRET_KEY }}
-          sentry.dsn : ${{ secrets.SENTRY_DSN }}
-          name : ${{ secrets.MY_JWT }}
-          buckets : ${{ secrets.BUCKET }}
-          statics : ${{ secrets.STATIC }}
-          
-      - name: Debug - Show application-prod.yml
-        run: cat ./src/main/resources/application-prod.yml
+    - name: Setup .env file
+      run: |
+        echo "TAG_VERSION=${{ secrets.TAG_VERSION }}" >> .env
+        echo "DOCKERHUB_USERNAME=${{ secrets.DOCKERHUB_USERNAME }}" >> .env
+        
+        echo "MYSQL_USER=${{ secrets.MYSQL_USER }}" >> .env
+        echo "MYSQL_PASSWORD=${{ secrets.MYSQL_PASSWORD }}" >> .env
+        echo "MYSQL_ROOT_PASSWORD=${{ secrets.MYSQL_ROOT_PASSWORD }}" >> .env
+        echo "MYSQL_DATABASE=${{ secrets.MYSQL_DATABASE }}" >> .env
 
-        # 권한 부여 후, War 빌드
-      - name: Grant execute permission for gradlew
-        run: chmod +x ./gradlew
-      - name: Build with Gradle
-        run: ./gradlew bootWar
+        echo "MONGO_INITDB_ROOT_USERNAME=${{ secrets.MONGO_INITDB_ROOT_USERNAME }}" >> .env
+        echo "MONGO_INITDB_ROOT_PASSWORD=${{ secrets.MONGO_INITDB_ROOT_PASSWORD }}" >> .env
+        echo "MONGO_INITDB_DATABASE=${{ secrets.MONGO_INITDB_DATABASE }}" >> .env
+        echo "MONGO_INITDB_USERNAME=${{ secrets.MONGO_INITDB_USERNAME }}" >> .env
+        echo "MONGO_INITDB_USER_PASSWORD=${{ secrets.MONGO_INITDB_USER_PASSWORD }}" >> .env
 
-        # Build 테스트 실패 시 디버깅 용도
-      - name: Archive test reports
-        if: failure()
-        uses: actions/upload-artifact@v2
-        with:
-          name: test-reports
-          path: ./build/reports/tests/test/
+        echo "STATIC=${{ secrets.STATIC }}" >> .env
+        echo "BUCKET=${{ secrets.BUCKET }}" >> .env
+        echo "S3_AWS_ACCESS_KEY=${{ secrets.S3_AWS_ACCESS_KEY }}" >> .env
+        echo "S3_AWS_SECRET_KEY=${{ secrets.S3_AWS_SECRET_KEY }}" >> .env
+        echo "SENTRY_DSN=${{ secrets.SENTRY_DSN }}" >> .env
+        echo "MY_JWT=${{ secrets.MY_JWT }}" >> .env
 
-      - name: Get current time
-        uses: 1466587594/get-current-time@v2
-        id: current-time
-        with:
-          format: YYYY-MM-DDTHH-mm-ss
-          utcOffset: "+09:00"
+    - name: Login to DockerHub
+      run: echo "${{ secrets.DOCKERHUB_PASSWORD }}" | docker login -u "${{ secrets.DOCKERHUB_USERNAME }}" --password-stdin
 
-      - name: Show Current Time
-        run: echo "CurrentTime=${{steps.current-time.outputs.formattedTime}}"
+    - name: Build and push Docker image
+      run: |
+        docker-compose build
+        docker-compose push
 
-      # EB에 CD
-      - name: Generate deployment package
-        run: |
-          mkdir -p deploy
-          cp build/libs/*.war deploy/application.war
-          cp Procfile deploy/Procfile
-          cp -r .ebextensions deploy/.ebextensions
-          cd deploy && zip -r deploy.zip .
-      - name: Deploy to EB
-        uses: einaregilsson/beanstalk-deploy@v21
-        with:
-          aws_access_key: ${{ secrets.AWS_ACCESS_KEY }}
-          aws_secret_key: ${{ secrets.AWS_SECRET_KEY }}
-          application_name: aws-portfolio-beanstalk
-          environment_name: Aws-portfolio-beanstalk-env
-          version_label: aws-portfolio-${{steps.current-time.outputs.formattedTime}}
-          region: ap-northeast-2
-          deployment_package: deploy/deploy.zip
+  Deploy-EC2:
+    runs-on: ubuntu-latest
+    needs: Build-and-Push
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+
+    - name: Copy docker-compose.yml to EC2
+      uses: appleboy/scp-action@master
+      with:
+        key: ${{ secrets.EC2_SSH_KEY }}
+        host: ${{ secrets.EC2_HOST }} 
+        username: ubuntu
+        source: "./docker-compose.yml"
+        target: "/myconfig/compose/"
+
+    - name: Deploy to EC2
+      uses: appleboy/ssh-action@v0.1.6
+      with:
+        key: ${{ secrets.EC2_SSH_KEY }}
+        host: ${{ secrets.EC2_HOST }}
+        username: ubuntu
+        script: |       
+          cd /myconfig/compose
+
+          echo "TAG_VERSION=${{ secrets.TAG_VERSION }}" >> .env
+          echo "DOCKERHUB_USERNAME=${{ secrets.DOCKERHUB_USERNAME }}" >> .env
+
+          echo "MYSQL_USER=${{ secrets.MYSQL_USER }}" >> .env
+          echo "MYSQL_PASSWORD=${{ secrets.MYSQL_PASSWORD }}" >> .env
+          echo "MYSQL_ROOT_PASSWORD=${{ secrets.MYSQL_ROOT_PASSWORD }}" >> .env
+          echo "MYSQL_DATABASE=${{ secrets.MYSQL_DATABASE }}" >> .env
+
+          echo "MONGO_INITDB_ROOT_USERNAME=${{ secrets.MONGO_INITDB_ROOT_USERNAME }}" >> .env
+          echo "MONGO_INITDB_ROOT_PASSWORD=${{ secrets.MONGO_INITDB_ROOT_PASSWORD }}" >> .env
+          echo "MONGO_INITDB_DATABASE=${{ secrets.MONGO_INITDB_DATABASE }}" >> .env
+          echo "MONGO_INITDB_USERNAME=${{ secrets.MONGO_INITDB_USERNAME }}" >> .env
+          echo "MONGO_INITDB_USER_PASSWORD=${{ secrets.MONGO_INITDB_USER_PASSWORD }}" >> .env
+
+          echo "STATIC=${{ secrets.STATIC }}" >> .env
+          echo "BUCKET=${{ secrets.BUCKET }}" >> .env
+          echo "S3_AWS_ACCESS_KEY=${{ secrets.S3_AWS_ACCESS_KEY }}" >> .env
+          echo "S3_AWS_SECRET_KEY=${{ secrets.S3_AWS_SECRET_KEY }}" >> .env
+          echo "SENTRY_DSN=${{ secrets.SENTRY_DSN }}" >> .env
+          echo "MY_JWT=${{ secrets.MY_JWT }}" >> .env
+
+          sudo docker-compose pull && sudo docker-compose up -d
