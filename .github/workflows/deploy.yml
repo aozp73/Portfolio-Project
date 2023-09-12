@@ -3,7 +3,7 @@ name: ProtoType - Deploy to AWS EC2
 on:
   push:
     branches:
-      - dev
+      - main
 
 jobs:
   Build-and-Push:

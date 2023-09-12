@@ -37,7 +37,10 @@ function login() {
             }
         },
         error: function(error) {
-            alert(error.responseJSON.data)
+            // alert(error.responseJSON.data)
+            const errorBox = document.getElementById("errorBox");
+            errorBox.innerText = error.responseJSON.data;
+            errorBox.style.display = 'block';
         }
     });
 }

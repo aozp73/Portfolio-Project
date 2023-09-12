@@ -12,6 +12,7 @@
                         </div>
                         <div class="card-body">
                             <form>
+                                <div id="errorBox" class="alert alert-danger" role="alert" style="height: 55px; display: none;"></div>
                                 <div class="mb-3">
                                     <label for="email" class="form-label">Email address</label>
                                     <input type="email" name="email" class="form-control" id="email" value="${cookie.remember.value}" aria-describedby="emailHelp" required>

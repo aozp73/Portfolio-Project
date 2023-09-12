@@ -33,9 +33,9 @@ public class AdminLoginService {
                 String jwt = myJwtProvider.create(userPS); // 토큰 생성
                 return jwt;
             }
-            throw new Exception400("패스워드가 유효하지 않습니다.");
+            throw new Exception400("비밀번호가 올바르지 않습니다.");
         } else {
-            throw new Exception400("이메일이 유효하지 않습니다.");
+            throw new Exception400("이메일이 올바르지 않습니다.");
         }
     }
 }
