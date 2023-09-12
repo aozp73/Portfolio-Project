@@ -27,6 +27,7 @@ public class MyBlogController {
     @GetMapping("/blog")
     public String myblogpage(Model model){
         List<MyBlogDTO_Out.FindAllDTO> myBlogList = myBlogService.myBlog_findAll();
+         model.addAttribute("currentPage", "blog");
          model.addAttribute("myBlogList", myBlogList);
 
         return "/myblog";
