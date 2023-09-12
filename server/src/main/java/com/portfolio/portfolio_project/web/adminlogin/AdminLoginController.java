@@ -1,6 +1,5 @@
 package com.portfolio.portfolio_project.web.adminlogin;
 
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.http.ResponseEntity;
@@ -12,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import com.portfolio.portfolio_project.core.dto.ResponseDTO;
 import com.portfolio.portfolio_project.core.jwt.MyJwtProvider;
 import com.portfolio.portfolio_project.service.AdminLoginService;
+import com.portfolio.portfolio_project.service.module.AdminLoginModules;
 
 import lombok.RequiredArgsConstructor;
 
@@ -29,16 +29,8 @@ public class AdminLoginController {
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody AdminLoginDTO_In.LoginDTO loginDTO, HttpServletResponse response) {
         String jwt = adminLoginService.로그인(loginDTO);
+        AdminLoginModules.setRemeberEmail(response, loginDTO.getRemember(), loginDTO.getEmail());
 
-        String remember = loginDTO.getRemember();
-        if (remember.equals("on")) {
-            Cookie cookie = new Cookie("remember", loginDTO.getEmail());
-            response.addCookie(cookie);
-        } else {
-            Cookie cookie = new Cookie("remember", "");
-            cookie.setMaxAge(0);
-            response.addCookie(cookie);
-        }
         return ResponseEntity.ok().header(MyJwtProvider.HEADER, jwt)
                 .body(new ResponseDTO<>().data(""));
     }
