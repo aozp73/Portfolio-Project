@@ -27,6 +27,7 @@ public class ResumeController {
     @GetMapping("/resume")
     public String resume_findAll(Model model){
         FindAllDTO resumeAllDTO = resumeService.resume_findAll();
+        model.addAttribute("currentPage", "resume");
         model.addAttribute("resumeAllDTO", resumeAllDTO);
         
         return "/resume";
