@@ -27,6 +27,7 @@ public class MySkillController {
         // JavaScript로 오브젝트를 바로 받을 수 있게 JSON 변환 후 응답
         Gson gson = new Gson();
         String jsonSkills = gson.toJson(mySkillsAllDTO.getSkillsMap());
+
         model.addAttribute("currentPage", "skills");
         model.addAttribute("allSkills", jsonSkills);
         
