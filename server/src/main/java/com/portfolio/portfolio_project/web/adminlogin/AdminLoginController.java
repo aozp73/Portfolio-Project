@@ -1,5 +1,8 @@
 package com.portfolio.portfolio_project.web.adminlogin;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,9 +27,9 @@ public class AdminLoginController {
     }
 
     @PostMapping("/login")
-    public ResponseEntity<?> login(@RequestBody AdminLoginDTO_In.LoginDTO loginDTO) {
+    public ResponseEntity<?> login(@RequestBody AdminLoginDTO_In.LoginDTO loginDTO, HttpServletResponse response) {
         String jwt = adminLoginService.로그인(loginDTO);
-
+        
         return ResponseEntity.ok().header(MyJwtProvider.HEADER, jwt)
                 .body(new ResponseDTO<>().data(""));
     }

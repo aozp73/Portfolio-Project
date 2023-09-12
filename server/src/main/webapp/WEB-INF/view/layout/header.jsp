@@ -39,13 +39,13 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto"> 
                     <li class="nav-item me-4">
-                        <a class="nav-link" href="/resume">Resume</a>
-                    </li>
-                    <li class="nav-item me-4">
                         <a class="nav-link" href="/blog">TechBlog</a>
                     </li>
                     <li class="nav-item me-4">
                         <a class="nav-link" href="/project">Project</a>
+                    </li>
+                    <li class="nav-item me-4">
+                        <a class="nav-link" href="/resume">Resume</a>
                     </li>
                     <li class="nav-item me-5">
                         <a class="nav-link" href="/skills">Skills</a>
