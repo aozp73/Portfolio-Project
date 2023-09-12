@@ -29,7 +29,16 @@ public class AdminLoginController {
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody AdminLoginDTO_In.LoginDTO loginDTO, HttpServletResponse response) {
         String jwt = adminLoginService.로그인(loginDTO);
-        
+
+        String remember = loginDTO.getRemember();
+        if (remember.equals("on")) {
+            Cookie cookie = new Cookie("remember", loginDTO.getEmail());
+            response.addCookie(cookie);
+        } else {
+            Cookie cookie = new Cookie("remember", "");
+            cookie.setMaxAge(0);
+            response.addCookie(cookie);
+        }
         return ResponseEntity.ok().header(MyJwtProvider.HEADER, jwt)
                 .body(new ResponseDTO<>().data(""));
     }
