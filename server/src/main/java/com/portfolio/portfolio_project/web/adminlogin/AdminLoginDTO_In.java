@@ -14,5 +14,6 @@ public class AdminLoginDTO_In {
     public static class LoginDTO {
         private String email;
         private String password;
+        private String remember;
     }
 }
