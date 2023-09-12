@@ -23,6 +23,7 @@
             padding-top: 88px;
         }
     </style>
+    <link rel="shortcut icon" sizes="114x114" type="image/x-icon" href="/image/favicon_portfolio.ico">
     <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>    
