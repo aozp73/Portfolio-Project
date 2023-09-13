@@ -24,8 +24,11 @@
         }
     </style>
 <<<<<<< HEAD
+    <link rel="shortcut icon" sizes="114x114" type="image/x-icon" href="/image/favicon_portfolio.ico">
+=======
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     <link rel="shortcut icon" sizes="114x114" type="image/x-icon" href="/image/favicon_portfolio.ico">
 >>>>>>> dev
@@ -35,6 +38,7 @@
 =======
     <link rel="shortcut icon" sizes="114x114" type="image/x-icon" href="/image/favicon_portfolio.ico">
 >>>>>>> dev
+>>>>>>> main
     <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>    
@@ -51,6 +55,8 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto"> 
                     <li class="nav-item me-4">
+<<<<<<< HEAD
+=======
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -75,6 +81,7 @@
 >>>>>>> dev
 =======
 >>>>>>> dev
+>>>>>>> main
                         <a class="nav-link ${currentPage == 'blog' ? 'active' : ''}" href="/blog">TechBlog</a>
                     </li>
                     <li class="nav-item me-4">
@@ -90,12 +97,15 @@
                 <button type="button" class="btn btn-primary mb-2 ms-2 edit-button" style="display:none" onclick="toggleEditMode()">편집모드</button>
                 <button type="button" class="btn btn-secondary btn-sm mb-2 ms-2 logout-button" style="display:none" onclick="logout()">로그아웃</button>
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
 <<<<<<< HEAD
 >>>>>>> dev
 =======
 >>>>>>> dev
 =======
 >>>>>>> dev
+>>>>>>> main
             </div>
         </div>
     </header>        
