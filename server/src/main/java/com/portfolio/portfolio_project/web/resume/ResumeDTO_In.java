@@ -35,6 +35,10 @@ public class ResumeDTO_In {
                     .build();
         }
     }
+<<<<<<< HEAD
+=======
+    
+>>>>>>> dev
     @Getter
     @Setter
     public static class Academyedu_postDTO {
