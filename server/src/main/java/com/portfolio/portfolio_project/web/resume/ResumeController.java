@@ -29,7 +29,7 @@ public class ResumeController {
         FindAllDTO resumeAllDTO = resumeService.resume_findAll();
         model.addAttribute("currentPage", "resume");
         model.addAttribute("resumeAllDTO", resumeAllDTO);
-         
+
         return "/resume";
     }
 
