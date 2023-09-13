@@ -173,8 +173,8 @@ function updatePost(pk, index) {
                         <div class="col-1">
                         </div>
                         <div class="col-5 pt-3">
-                            <h2 id="postTitle-${db_pk}">${postTitle}</h2><hr>
-                            <div id="postContent-${db_pk}">${postContent}</div>
+                            <h2 id="postTitle-${db_pk}">${db_postTitle}</h2><hr>
+                            <div id="postContent-${db_pk}">${db_postContent}</div>
                         </div>
                         <div class="col-5 ms-5">
                             <img src="${db_imgURL}" id="postImage-${db_pk}" alt="Description of Image" class="img-fluid responsive-image">
