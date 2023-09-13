@@ -28,6 +28,8 @@ public class MyProjectController {
     @GetMapping("/project")
     public String projectpage(Model model){
         List<MyProjectDTO_Out.FindAllDTO> myProjectList = myProjectService.findAllProjectsAndRoles();
+
+        model.addAttribute("currentPage", "project");
         model.addAttribute("myProjectList", myProjectList);
 
         return "/myproject";

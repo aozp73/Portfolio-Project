@@ -13,6 +13,13 @@
     padding-bottom: 0.7rem; 
 }
 
+<<<<<<< HEAD
+=======
+.active {
+    font-weight: 540;
+}
+
+>>>>>>> dev
 /* mainpage */
 .responsive-image {
     width: 500px;
