@@ -2,33 +2,62 @@
 <div align="center">
         <img width="100%" src="https://github.com/aozp73/Portfolio-Project/assets/122352251/43dcaaad-148a-4f7a-bc14-90602b55775a"/>
 </div>
+<br>
+<div align="center">
+        <img width="100%" src="https://github.com/aozp73/Portfolio-Project/assets/122352251/3f28d62f-dc42-4a4f-b6bd-f32810a8b68b"/>
+</div>
 
 <br>
 
 &nbsp; - 관리자가 각 topic의 게시글 CRUD 진행 <br>
 &nbsp; - FrontEnd / BackEnd / DevOps <br>
 
-<br>
+<br> <br>
+
+## 기술 스택
+
+### Front-End 
+![HTML5](https://img.shields.io/badge/HTML5-%23E34F26.svg?style=flat-square&logo=html5&logoColor=white) 
+![CSS3](https://img.shields.io/badge/CSS3-%231572B6.svg?style=flat-square&logo=css3&logoColor=white) 
+![JavaScript](https://img.shields.io/badge/JavaScript-%23323330.svg?style=flat-square&logo=javascript&logoColor=%23F7DF1E) 
+![jQuery](https://img.shields.io/badge/bootstrap-7952B3?style=flat-square&logo=bootstrap&logoColor=white)
+
+### DataBase
+![MySQL](https://img.shields.io/badge/MySQL-4479A1.svg?style=flat-square&logo=MySQL&logoColor=white)
+![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=flat-square&logo=MongoDB&logoColor=white)
+
+### Back-End
+![JPA](https://img.shields.io/badge/JPA-5F5F5F?style=flat-square&logo=buffer&logoColor=white)
+![Java](https://img.shields.io/badge/Java-007396.svg?style=flat-square&logo=openjdk&logoColor=white)
+![SpringBoot](https://img.shields.io/badge/Spring_Boot-%236DB33F.svg?style=flat-square&logo=spring&logoColor=white) 
+![SpringSecurity](https://img.shields.io/badge/Spring_Security-6DB33F?style=flat-square&logo=spring&logoColor=white)
+![JUnit](https://img.shields.io/badge/JUnit5-25A162?style=flat-square&logo=junit5&logoColor=white)
+![AmazonS3](https://img.shields.io/badge/AmazonS3-569A31?style=flat-square&logo=amazons3&logoColor=white)
+
+### Dev-Ops
+![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=Docker&logoColor=white)
+![EC2](https://img.shields.io/badge/AmazonEC2-FF9900?style=flat-square&logo=amazonec2&logoColor=white)
+
+### IDE
+![VisualStudio](https://img.shields.io/badge/VisualStudioCode-007ACC?style=flat-square&logo=VisualStudioCode&logoColor=white)
+
+<br> <br>
 
 ## 개인 수행기능
 ### 전체요약
 <div align="center">
-    <img width="80%" src=""/>
+    <img width="80%" src="https://github.com/aozp73/Portfolio-Project/assets/122352251/e90814d2-d341-4408-9a5a-9d817de8ce05"/>
 </div>
-
 <br>
 
-
 ### FrontEnd
-
-##### HTML 레이아웃 / 기본 JavaScipt 세팅 <br>
+##### HTML 레이아웃 / 기본 JavaScript 세팅 <br>
 &nbsp;\- Main / Blog / Project / Resume / Skills 각 진행 <br>
 &nbsp;&nbsp;&nbsp;([ForntEnd 세팅 - 기술 블로그](https://blog.naver.com/aozp73/223210696832))<br>
 
 <br>
 
 ### BackEnd
-
 ##### &nbsp;&nbsp;프로젝트 초기 세팅
  &nbsp;\- Glboal Exception 처리 / Server 실행 시 초기 데이터 삽입 <br>
 &nbsp;&nbsp;&nbsp;([프로젝트 초기 세팅 - 기술 블로그](https://blog.naver.com/aozp73/223210698871)) <br>
@@ -100,30 +129,20 @@
 &nbsp;\- Spring app + MongoDB + MySQL을 컨테이너로 EC2에 띄워 CICD 구축 <br>
 &nbsp;&nbsp;&nbsp;([Docker Compose 1 - 기술 블로그](https://blog.naver.com/aozp73/223210720976)), ([Docker Compose 2 - 기술 블로그](https://blog.naver.com/aozp73/223210721983))
 
-<br>
-
-## 프로젝트 후기 / 느낀점
-
-<br>
+<br> <br>
 
 ## 시연 영상
 
+<br> <br>
 
-## 기술 스택
+## 프로젝트 후기 / 느낀점
 
-### Back-End
-### Front-End
-### 협업툴
-### DataBase
-
-<br>
-
-## 사용 라이브러리 
-
-<br>
-
-<br>
+<br> <br>
 
 ## 테이블 설계
 
-<br>
+<br> <br>
+
+## 사용 라이브러리 
+
+<br> <br>
