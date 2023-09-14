@@ -141,8 +141,46 @@
 
 ## 테이블 설계
 
-<br> <br>
+<br>
+
+![포트폴리오 DB설계](https://github.com/aozp73/Portfolio-Project/assets/122352251/88ab6cab-10cb-44a4-b24a-c0873cd8564c)
+
+<br>
 
 ## 사용 라이브러리 
+
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    developmentOnly 'org.springframework.boot:spring-boot-devtools'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    implementation group: 'com.google.code.gson', name: 'gson', version: '2.9.0'
+
+    - Repository, DB
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'org.springframework.boot:spring-boot-starter-data-mongodb'
+    runtimeOnly 'com.mysql:mysql-connector-j'
+
+    - Spring Security, JWT
+    implementation group: 'com.auth0', name: 'java-jwt', version: '4.3.0'
+    implementation 'org.springframework.boot:spring-boot-starter-security'
+    testImplementation 'org.springframework.security:spring-security-test'
+
+    - RestDocs
+    testImplementation 'org.projectlombok:lombok'
+    testAnnotationProcessor 'org.projectlombok:lombok'
+    testImplementation 'org.springframework.restdocs:spring-restdocs-mockmvc'
+
+    - Sentry
+    implementation 'io.sentry:sentry-spring-boot-starter:6.28.0'
+    implementation 'io.sentry:sentry-logback:6.28.0'
+
+    - AWS S3
+    implementation 'org.springframework.cloud:spring-cloud-starter-aws:2.2.6.RELEASE'
+
+    - View
+    implementation 'javax.servlet:jstl'
+    implementation 'org.apache.tomcat.embed:tomcat-embed-jasper'
+    implementation 'org.springframework.security:spring-security-taglibs'
 
 <br> <br>
