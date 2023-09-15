@@ -132,13 +132,8 @@
 <br> <br>
 
 ## 시연 영상
-### Resume 페이지
-|      기능      |                           영상                            |
-|:------------------:|:---------------------------------------------------------:|
-|     Row 이동       | ![Row 이동](https://github.com/aozp73/Portfolio-Project/assets/122352251/41c4022a-069d-488d-a3ac-7821a811adcb) |
-|     Resume 등록    | ![Resume 등록](https://github.com/aozp73/Portfolio-Project/assets/122352251/d4319c81-d17a-48ec-a17c-61b7120b1406) |
-|     Resume 삭제    | ![Resume 삭제](https://github.com/aozp73/Portfolio-Project/assets/122352251/e424968d-a6b6-4f0f-be52-ec441375956d) |
-<br>
+
+&nbsp;&nbsp; (영상 화질이 고르지 못한 점, 양해 부탁드립니다.)
 
 ### Project 페이지
 |      기능      |                           영상                            |
@@ -152,6 +147,14 @@
 |      기능      |                           영상                            |
 |:----------------:|:---------------------------------------------------------:|
 |     시나리오  | ![Skills 시나리오](https://github.com/aozp73/Portfolio-Project/assets/122352251/6228ba08-4d13-4cca-a644-14e9a853416f) |
+<br>
+
+### Resume 페이지
+|      기능      |                           영상                            |
+|:------------------:|:---------------------------------------------------------:|
+|     Row 이동       | ![Row 이동](https://github.com/aozp73/Portfolio-Project/assets/122352251/41c4022a-069d-488d-a3ac-7821a811adcb) |
+|     Resume 등록    | ![Resume 등록](https://github.com/aozp73/Portfolio-Project/assets/122352251/d4319c81-d17a-48ec-a17c-61b7120b1406) |
+|     Resume 삭제    | ![Resume 삭제](https://github.com/aozp73/Portfolio-Project/assets/122352251/e424968d-a6b6-4f0f-be52-ec441375956d) |
 <br>
 
 ### Blog 페이지
@@ -197,6 +200,8 @@
     - 여러 취약점 및 암호화 체계에 대한 깊은 지식이 없어 관련 상식이나 지식을 쌓아야할 필요성을 느꼈고, 많은 프로젝트 
       진행과 경험을 쌓는 것이 중요하다는 것을 느낄 수 있었다.
 
+<br>
+
 ### 2. Front / Back / DevOps
 
   ① 얕고 깊은 진행
@@ -220,6 +225,8 @@
 
     - 교육간 프로젝트에서도 특히 신경썼던 부분이며, 실무에 나가 협업 프로젝트를 진행할 때 커뮤니케이션 능력은 개발실력과 
       더불어 노력해야할 중요한 부분이라는 생각을 하게 되었다.
+
+<br>
 
 ### 3. 기술 블로그 
 
