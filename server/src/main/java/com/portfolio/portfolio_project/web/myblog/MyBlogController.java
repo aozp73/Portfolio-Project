@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.portfolio.portfolio_project.core.aop.CustomSentryMonitoring;
 import com.portfolio.portfolio_project.core.dto.ResponseDTO;
 import com.portfolio.portfolio_project.service.MyBlogService;
 
@@ -25,7 +26,8 @@ public class MyBlogController {
 
     // FindAll
     @GetMapping("/blog")
-    public String myblogpage(Model model){
+    @CustomSentryMonitoring
+    public String myblogPage(Model model){
         List<MyBlogDTO_Out.FindAllDTO> myBlogList = myBlogService.myBlog_findAll();
          model.addAttribute("currentPage", "blog");
          model.addAttribute("myBlogList", myBlogList);
