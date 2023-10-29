@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.portfolio.portfolio_project.core.aop.CustomSentryMonitoring;
 import com.portfolio.portfolio_project.core.dto.ResponseDTO;
 import com.portfolio.portfolio_project.service.ResumeService;
 import com.portfolio.portfolio_project.web.resume.ResumeDTO_Out.FindAllDTO;
@@ -25,7 +26,8 @@ public class ResumeController {
 
     // FindAll
     @GetMapping("/resume")
-    public String resume_findAll(Model model){
+    @CustomSentryMonitoring
+    public String resumePage(Model model){
         FindAllDTO resumeAllDTO = resumeService.resume_findAll();
         model.addAttribute("currentPage", "resume");
         model.addAttribute("resumeAllDTO", resumeAllDTO);
