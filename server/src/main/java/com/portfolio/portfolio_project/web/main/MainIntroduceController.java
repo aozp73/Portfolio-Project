@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.portfolio.portfolio_project.core.aop.CustomSentryMonitoring;
 import com.portfolio.portfolio_project.core.dto.ResponseDTO;
 import com.portfolio.portfolio_project.service.MainIntroduceService;
 
@@ -25,7 +26,8 @@ public class MainIntroduceController {
 
     // FindAll
     @GetMapping({"/","/mainpage"})
-    public String main_findAll(Model model){
+    @CustomSentryMonitoring
+    public String mainPage(Model model){
         List<MainIntroduceDTO_Out.FindAllDTO> mainIntroduceList = mainIntroduceService.main_findAll();
         model.addAttribute("mainIntroduceList", mainIntroduceList);
 

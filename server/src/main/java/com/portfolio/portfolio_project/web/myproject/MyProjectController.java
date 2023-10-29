@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.portfolio.portfolio_project.core.aop.CustomSentryMonitoring;
 import com.portfolio.portfolio_project.core.dto.ResponseDTO;
 import com.portfolio.portfolio_project.service.MyProjectService;
 
@@ -26,7 +27,8 @@ public class MyProjectController {
 
     // FindAll
     @GetMapping("/project")
-    public String projectpage(Model model){
+    @CustomSentryMonitoring
+    public String projectPage(Model model){
         List<MyProjectDTO_Out.FindAllDTO> myProjectList = myProjectService.findAllProjectsAndRoles();
         model.addAttribute("currentPage", "project");
         model.addAttribute("myProjectList", myProjectList);

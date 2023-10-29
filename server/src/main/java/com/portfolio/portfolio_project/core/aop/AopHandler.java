@@ -12,7 +12,7 @@ import io.sentry.Sentry;
 @Component
 public class AopHandler {
     
-    @Pointcut("@annotation(com.portfolio.portfolio_project.core.aop.SentryMonitoring)")
+    @Pointcut("@annotation(com.portfolio.portfolio_project.core.aop.CustomSentryMonitoring)")
     public void sentryMonitoring() {
     }
 
