@@ -5,6 +5,12 @@ server:
       force: true
   port: 8080
 
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
 spring:
   mvc:
     view:
