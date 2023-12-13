@@ -1,6 +1,7 @@
 package com.portfolio.portfolio_project.core.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpStatus;
@@ -32,6 +33,9 @@ public class SecurityConfig {
     BCryptPasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
+
+    @Value("${name}")
+    private String name;
 
     public class CustomSecurityFilterManager extends AbstractHttpConfigurer<CustomSecurityFilterManager, HttpSecurity> {
         @Override
@@ -89,10 +93,15 @@ public class SecurityConfig {
             response.getWriter().write("{\"data\":\"권한이 없습니다.\"}");
         });
 
+        // API 키 필터 추가
+        http.addFilterBefore(new ApiKeyAuthFilter(name), BasicAuthenticationFilter.class);
+
         // 9. 인증, 권한 필터 설정
         http.authorizeRequests(
-                authroize -> authroize.antMatchers("/auth/**").authenticated()// 인증이 필요한곳
+                authroize -> authroize
+                        .antMatchers("/actuator/prometheus").permitAll()
                         .antMatchers("/auth/**").access("hasRole('ROLE_admin')")
+                        .antMatchers("/actuator/**").access("hasRole('ROLE_admin')")
                         .anyRequest().permitAll());
 
         return http.build();
