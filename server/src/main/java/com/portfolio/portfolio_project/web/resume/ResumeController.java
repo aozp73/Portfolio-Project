@@ -16,6 +16,7 @@ import com.portfolio.portfolio_project.core.dto.ResponseDTO;
 import com.portfolio.portfolio_project.service.ResumeService;
 import com.portfolio.portfolio_project.web.resume.ResumeDTO_Out.FindAllDTO;
 
+import io.micrometer.core.annotation.Counted;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
@@ -27,6 +28,7 @@ public class ResumeController {
     // FindAll
     @GetMapping("/resume")
     @CustomSentryMonitoring
+    @Counted("my.resume")
     public String resumePage(Model model){
         FindAllDTO resumeAllDTO = resumeService.resume_findAll();
         model.addAttribute("currentPage", "resume");
