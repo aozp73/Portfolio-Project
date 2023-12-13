@@ -35,6 +35,10 @@ dependencies {
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
     implementation group: 'com.google.code.gson', name: 'gson', version: '2.9.0'
 
+	// 모니터링 개선 (그라파나)
+    implementation 'org.springframework.boot:spring-boot-starter-actuator'
+    implementation 'io.micrometer:micrometer-registry-prometheus'
+
     // Repository, DB
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.springframework.boot:spring-boot-starter-data-mongodb'
@@ -50,7 +54,7 @@ dependencies {
 	testAnnotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.restdocs:spring-restdocs-mockmvc'
 
-    // Sentry
+    // Sentry (기존 모니터링)
 	implementation 'io.sentry:sentry-spring-boot-starter:6.28.0'
 	implementation 'io.sentry:sentry-logback:6.28.0'
 
