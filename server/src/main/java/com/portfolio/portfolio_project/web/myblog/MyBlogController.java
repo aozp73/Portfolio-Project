@@ -16,6 +16,7 @@ import com.portfolio.portfolio_project.core.aop.CustomSentryMonitoring;
 import com.portfolio.portfolio_project.core.dto.ResponseDTO;
 import com.portfolio.portfolio_project.service.MyBlogService;
 
+import io.micrometer.core.annotation.Counted;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
@@ -27,6 +28,7 @@ public class MyBlogController {
     // FindAll
     @GetMapping("/blog")
     @CustomSentryMonitoring
+    @Counted("my.blog")
     public String myblogPage(Model model){
         List<MyBlogDTO_Out.FindAllDTO> myBlogList = myBlogService.myBlog_findAll();
          model.addAttribute("currentPage", "blog");

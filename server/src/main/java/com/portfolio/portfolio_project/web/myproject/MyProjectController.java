@@ -17,6 +17,7 @@ import com.portfolio.portfolio_project.core.aop.CustomSentryMonitoring;
 import com.portfolio.portfolio_project.core.dto.ResponseDTO;
 import com.portfolio.portfolio_project.service.MyProjectService;
 
+import io.micrometer.core.annotation.Counted;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
@@ -28,6 +29,7 @@ public class MyProjectController {
     // FindAll
     @GetMapping("/project")
     @CustomSentryMonitoring
+    @Counted("my.project")
     public String projectPage(Model model){
         List<MyProjectDTO_Out.FindAllDTO> myProjectList = myProjectService.findAllProjectsAndRoles();
         model.addAttribute("currentPage", "project");

@@ -12,6 +12,7 @@ import com.portfolio.portfolio_project.core.aop.CustomSentryMonitoring;
 import com.portfolio.portfolio_project.core.dto.ResponseDTO;
 import com.portfolio.portfolio_project.service.MySkillsService;
 
+import io.micrometer.core.annotation.Counted;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
@@ -23,6 +24,7 @@ public class MySkillController {
     // FindAll
     @GetMapping("/skills")
     @CustomSentryMonitoring
+    @Counted("my.skill")
     public String myskillsPage(Model model){
         MySkillDTO_Out.FindAllDTO mySkillsAllDTO = mySkillsService.findAllSkills();
 

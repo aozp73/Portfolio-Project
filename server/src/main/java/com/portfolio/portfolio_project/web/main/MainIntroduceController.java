@@ -16,6 +16,7 @@ import com.portfolio.portfolio_project.core.aop.CustomSentryMonitoring;
 import com.portfolio.portfolio_project.core.dto.ResponseDTO;
 import com.portfolio.portfolio_project.service.MainIntroduceService;
 
+import io.micrometer.core.annotation.Counted;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
@@ -27,6 +28,7 @@ public class MainIntroduceController {
     // FindAll
     @GetMapping({"/","/mainpage"})
     @CustomSentryMonitoring
+    @Counted("my.main")
     public String mainPage(Model model){
         List<MainIntroduceDTO_Out.FindAllDTO> mainIntroduceList = mainIntroduceService.main_findAll();
         model.addAttribute("mainIntroduceList", mainIntroduceList);
