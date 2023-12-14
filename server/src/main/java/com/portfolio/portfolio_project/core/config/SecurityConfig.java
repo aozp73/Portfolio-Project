@@ -35,7 +35,7 @@ public class SecurityConfig {
     }
 
     @Value("${name}")
-    private String name;
+    private String credentials;
 
     public class CustomSecurityFilterManager extends AbstractHttpConfigurer<CustomSecurityFilterManager, HttpSecurity> {
         @Override
@@ -94,7 +94,7 @@ public class SecurityConfig {
         });
 
         // API 키 필터 추가
-        http.addFilterBefore(new ApiKeyAuthFilter(name), BasicAuthenticationFilter.class);
+        http.addFilterBefore(new BasicAuthFilter(credentials), BasicAuthenticationFilter.class);
 
         // 9. 인증, 권한 필터 설정
         http.authorizeRequests(
