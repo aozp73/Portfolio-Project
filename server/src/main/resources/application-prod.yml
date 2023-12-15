@@ -3,9 +3,19 @@ server:
     encoding:
       charset: utf-8
       force: true
-  port: 8080
-
+  port: 8080 
+  tomcat: # 톰캣 메트릭
+    mbeanregistry:
+      enabled: true
+  
 management:
+  info:
+    java:
+      enabled: true
+    os:
+      enabled: true
+    env:
+      enabled: true
   endpoints:
     web:
       exposure:
