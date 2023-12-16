@@ -8,9 +8,9 @@
 </div>
 
 <br>
-
-&nbsp; - 관리자가 각 topic의 게시글 CRUD 진행 <br>
 &nbsp; - FrontEnd / BackEnd / DevOps <br>
+&nbsp; - 관리자가 각 게시글 CRUD 진행 <br>
+&nbsp; - Docker CICD 배포 및 그라파나 모니터링 <br>
 
 <br> <br>
 
@@ -37,6 +37,7 @@
 ### Dev-Ops
 ![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=Docker&logoColor=white)
 ![EC2](https://img.shields.io/badge/AmazonEC2-FF9900?style=flat-square&logo=amazonec2&logoColor=white)
+![Prometheus](https://img.shields.io/badge/Prometheus-E6522C.svg?style=flat-square&logo=Prometheus&logoColor=white)
 
 ### IDE
 ![VisualStudio](https://img.shields.io/badge/VisualStudioCode-007ACC?style=flat-square&logo=VisualStudioCode&logoColor=white)
@@ -44,12 +45,6 @@
 <br> <br>
 
 ## 개발 Topic
-### 전체요약
-<div align="center">
-    <img width="80%" src="https://github.com/aozp73/Portfolio-Project/assets/122352251/e90814d2-d341-4408-9a5a-9d817de8ce05"/>
-</div>
-<br>
-
 ### FrontEnd
 ##### HTML 레이아웃 / 기본 JavaScript 세팅 <br>
 &nbsp;\- Main / Blog / Project / Resume / Skills 각 진행 <br>
@@ -59,23 +54,23 @@
 
 ### BackEnd
 ##### &nbsp;&nbsp;프로젝트 초기 세팅
- &nbsp;\- Glboal Exception 처리 / Server 실행 시 초기 데이터 삽입 <br>
+ &nbsp;\- Global Exception 처리 / Server 실행 시 초기 데이터 삽입 (언체크 예외 일괄 처리로 개발 생산성 ↑ / 관리자 데이터 신경 x) <br>
 &nbsp;&nbsp;&nbsp;([프로젝트 초기 세팅 - 기술 블로그](https://blog.naver.com/aozp73/223210698871)) <br>
 
 ##### ① DB 설계 / Entity, Document 생성
-&nbsp;\- JPA, MySQL, MongoDB 활용 전 초기 설계 <br>
-&nbsp;&nbsp;&nbsp;[DB, Domain 생성 - 기술 블로그](https://blog.naver.com/aozp73/223210725944)<br>
+&nbsp;\- JPA, MySQL, MongoDB 초기 설계 (Spring Data 구현체 활용 / Repository Test 병행) <br>
+&nbsp;&nbsp;&nbsp;([DB, Domain 생성 - 기술 블로그](https://blog.naver.com/aozp73/223210725944)) <br>
  
-##### ② SpringSecurity 
- &nbsp;\- 관리자의 게시물 CRUD를 위한 로그인 기능 <br>
+##### ② Spring Security 
+ &nbsp;\- 관리자의 게시물 CRUD에 따른 인증 처리 (인증된 Spring 기술로 신뢰도 ↑) <br>
 &nbsp;&nbsp;&nbsp;([SpringSecurity - 기술 블로그](https://blog.naver.com/aozp73/223210700840))
 
-##### ③ SpringSecurity + JWT
- &nbsp;\- 기존 코드에 JWT 적용하여 업데이트 <br>
+##### ③ Spring Security + JWT
+ &nbsp;\- 기존 코드에 JWT 업데이트 (JWT 토큰으로 APP 확장성 고려 가능 / Header, Payload, Signature 구조 신뢰도 ↑) <br>
 &nbsp;&nbsp;&nbsp;([JWT 토큰 활용 - 기술 블로그](https://blog.naver.com/aozp73/223210702711))
 
 ##### ④ AWS S3
- &nbsp;\- Main, Project 페이지에서의 이미지에 활용 <br>
+ &nbsp;\- Main, Project 페이지 이미지에 활용 (클라우드 DB의 저장 공간 활용 및 확장성 ↑)  <br>
 &nbsp;&nbsp;&nbsp;([AWS S3 - 기술 블로그](https://blog.naver.com/aozp73/223210705000))
 
 ##### ⑤ Main Page 진행 
@@ -115,7 +110,7 @@
 &nbsp;&nbsp;&nbsp;([통합 테스트 - 기술 블로그](https://blog.naver.com/aozp73/223210728900))  <br>
  
 ##### ③ RestDoc 연동
-&nbsp;\- 통합 테스트와 연계하여 자동 API 문서화 활용 <br>
+&nbsp;\- 통합 테스트와 연계하여 자동 API 문서화 활용 (수기 API 오타 및 시간 활용 개선) <br>
 &nbsp;&nbsp;&nbsp;([RestDoc - 기술 블로그](https://blog.naver.com/aozp73/223210757150))
 
 <br>
@@ -129,11 +124,17 @@
 &nbsp;\- Spring app + MongoDB + MySQL을 컨테이너로 EC2에 띄워 CICD 구축 <br>
 &nbsp;&nbsp;&nbsp;([Docker Compose 1 - 기술 블로그](https://blog.naver.com/aozp73/223210720976)), ([Docker Compose 2 - 기술 블로그](https://blog.naver.com/aozp73/223210721983))
 
+<br>
+
+### Monitoring 
+
+##### Actuator, Prometheus, Grafana <br>
+&nbsp;\- 각 페이지 요청 수, 프로메테우스 DB에 저장 / 그라파나 대시보드를 통해 간편하게 확인 <br>
+&nbsp;&nbsp;&nbsp;([모니터링 - 기술 블로그](https://blog.naver.com/aozp73/223294629606))
+
 <br> <br>
 
 ## 시연 영상
-
-&nbsp;&nbsp; (영상 화질이 고르지 못한 점, 양해 부탁드립니다.)
 
 ### Project 페이지
 |      기능      |                           영상                            |
@@ -175,30 +176,30 @@
 <br> <br>
 
 ## 프로젝트 후기 / 느낀점
-&nbsp;&nbsp;(JPA, Sentry, S3, Security 등은 이전 프로젝트에서도 사용하였기 때문에, 다른 주제로 작성)
+&nbsp;&nbsp;(JPA, Sentry, S3, Security 등은 이전에 사용하여 해당 프로젝트 README.md에 정리하였다. 다른 주제를 작성하였다.)
 
 ### 1. CI/CD 배포  
 
   ① Elastic Beanstalk
 
-    - 최종 CI/CD 환경은 Docker 컨테이너로 구축할 계획이었고, 다양한 방식을 경험하고 싶어 진행하였다.
+    - 운영 CI/CD 환경은 Docker로 진행하고, 다양한 방식을 경험하고 싶어 진행하였다.
 
-    - 오픈 소스로 제공하는 Git Actions의 Runner 서버를 통한 WorkFlow부터 Elastic Beanstalk이 제공하는 로드밸런싱, 
-      오토 스케일링, 블루/그린 배포 등을 간접 경험할 수 있었다.
+    - Git Actions의 Runner 서버를 통한 WorkFlow / Elastic Beanstalk 제공 로드밸런싱 / 오토 스케일링 / 블루, 그린 배포 등을 
+      간접 경험할 수 있었다.
 
-    - 단순히 엘라스틱 빈 스톡 설정을 세팅하여 생성 한 뒤, 배포 스크립트만 작성하면 모든 과정이 자동화 되었고 간소화된 
-      대시보드를 통해 로그 및 자원 사용량을 모니터링 할 수 있는 환경이었다.
+    - Elastic Beanstalk 설정 세팅 및 생성 한 뒤, 배포 스크립트만 작성하면 모든 과정이 자동화 되었다.
+      간소화된 대시보드를 통해 로그 및 자원 사용량을 모니터링 할 수 있는 환경이라 편리하였다.
 
   ② Docker Compose
 
-    - 기반 이미지가 다양하여 이미지를 만들기 간편하고, 진행 프로젝트를 이미지로 DockerHub에 올려 배포 환경에선 단순히 
-      해당 이미지를 다운 및 실행하면 되었다.
+    - MySQL, jdk 등 기반 이미지가 다양하여 이미지를 만들기 간편하였다.
+      진행 프로젝트를 이미지로 DockerHub에 올려 배포 환경에선 단순히 해당 이미지를 다운 및 실행하면 되었다.
 
-    - 많은 기술을 오픈 소스로 제공하여 편리하였지만, RDS와 같이 많은 보안 기술이 적용된 환경과 비교할 때 안정성에 대한
-      막연함과 기술이 익숙치 않아 초기 진행에서 전 과정이 한번에 그려지지 않았던 것이 불편하였다.
+    - RDS와 같이 많은 보안 기술이 적용된 환경과 비교할 때 안정성에 대한 막연함이 있었다.
+      또한, 기술이 익숙치 않아 초기 진행에서 전 과정이 한번에 그려지지 않았던 것이 불편하였다.
 
-    - 여러 취약점 및 암호화 체계에 대한 깊은 지식이 없어 관련 상식이나 지식을 쌓아야할 필요성을 느꼈고, 많은 프로젝트 
-      진행과 경험을 쌓는 것이 중요하다는 것을 느낄 수 있었다.
+    - 여러 취약점 및 암호화 체계에 대한 깊은 지식이 없어 관련 상식이나 지식을 쌓아야할 필요성을 느꼈다.
+      많은 프로젝트 진행과 경험을 쌓는 것이 중요하다는 것을 느낄 수 있었다.
 
 <br>
 
@@ -206,16 +207,13 @@
 
   ① 얕고 깊은 진행
 
-    - 반년간의 교육에서 풀스택 과정을 수료하였고, 개인이 준비한 결과물을 데이터로 표현하는 해당 프로젝트를 진행하였다.
+    - 반년간의 교육에서 풀스택 과정을 수료하였고, 내가 준비한 학습 데이터를 표현하는 프로젝트를 진행하였다.
 
-    - 구상 내용을 표현하는 것은 가능했지만, Backend만 팠더라면 Backend에 대한 더 좋은 로직이 나올 수 있었을까라는
-      궁금증이 생겼다.
+    - 데이터 표현에 있어 구상 내용을 진행할 수 있었지만, Backend만 팠더라면 Backend에 대한 더 좋은 로직이 나올 수 
+      있었을까라는 궁금증이 생겼다.
 
     - Front, DevOps도 마찬가지다. 더 좋은 로직이라고 하여도 취업 준비생 수준이겠지만, 앞으로 10년~30년 경력을 쌓음에 
       있어 풀스택이라는게 얇고 넓게 아는 것인지라는 생각이 들었다.
-
-    - 해당 내용과 관련하여 각 산업에 서비스되는 고수준 기준으로, 각 part의 학습량, 깊이가 어느정도인지 궁금해졌다.
-
 
   ② 팀과의 소통
 
@@ -281,6 +279,10 @@
     testImplementation 'org.projectlombok:lombok'
     testAnnotationProcessor 'org.projectlombok:lombok'
     testImplementation 'org.springframework.restdocs:spring-restdocs-mockmvc'
+
+    - Monitoring
+    implementation 'org.springframework.boot:spring-boot-starter-actuator'
+    implementation 'io.micrometer:micrometer-registry-prometheus'
 
     - Sentry
     implementation 'io.sentry:sentry-spring-boot-starter:6.28.0'
