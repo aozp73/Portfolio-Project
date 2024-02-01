@@ -1,15 +1,26 @@
 # 개인 Portfolio 어플리케이션
 <div align="center">
-        <img width="100%" src="https://github.com/aozp73/Portfolio-Project/assets/122352251/43dcaaad-148a-4f7a-bc14-90602b55775a"/>
+        <img width="60%" src="https://github.com/aozp73/Portfolio-Project/assets/122352251/87207201-517a-45c9-b2c7-304ba18f6145"/>
 </div>
 <br>
 <div align="center">
-        <img width="100%" src="https://github.com/aozp73/Portfolio-Project/assets/122352251/3f28d62f-dc42-4a4f-b6bd-f32810a8b68b"/>
+        아키텍쳐
+</div>
+
+<br> <br>
+
+
+<div align="center">
+        <img width="80%" src="https://github.com/aozp73/Portfolio-Project/assets/122352251/43dcaaad-148a-4f7a-bc14-90602b55775a"/>
+</div>
+<br>
+<div align="center">
+        <img width="80%" src="https://github.com/aozp73/Portfolio-Project/assets/122352251/3f28d62f-dc42-4a4f-b6bd-f32810a8b68b"/>
 </div>
 
 <br>
 &nbsp; - FrontEnd / BackEnd / DevOps <br>
-&nbsp; - 관리자가 각 게시글 CRUD 진행 <br>
+&nbsp; - 관리자 계정: 각 항목 CRUD 편집 기능 <br>
 &nbsp; - Docker CICD 배포 및 그라파나 모니터링 <br>
 
 <br> <br>
